@@ -42,6 +42,8 @@ public class NewJFrame extends javax.swing.JFrame {
         cnyLabel = new javax.swing.JLabel();
         eurLabel = new javax.swing.JLabel();
         jpyLabel = new javax.swing.JLabel();
+        enterField = new javax.swing.JTextField();
+        jComboBox7 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -52,6 +54,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jComboBox4 = new javax.swing.JComboBox<>();
         jTF4 = new javax.swing.JTextField();
         jComboBox5 = new javax.swing.JComboBox<>();
+        jTF5 = new javax.swing.JTextField();
+        jTF6 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
@@ -68,13 +74,17 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jPanel3.setBackground(java.awt.Color.white);
 
+        jButton2.setBackground(java.awt.Color.black);
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setForeground(java.awt.Color.white);
         jButton2.setText("Currency Exchange Rate");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        timeLabel.setBackground(java.awt.Color.white);
 
         cnyLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cnyLabel.setText("USD/CNY");
@@ -85,47 +95,60 @@ public class NewJFrame extends javax.swing.JFrame {
         jpyLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jpyLabel.setText("USD/JPY");
 
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(timeLabel))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jButton2)))
-                .addContainerGap(302, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(eurLabel)
                     .addComponent(cnyLabel)
                     .addComponent(jpyLabel, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(133, 133, 133))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jButton2)
+                .addGap(30, 30, 30)
+                .addComponent(enterField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(timeLabel)
-                    .addComponent(cnyLabel))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(enterField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(cnyLabel)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
                 .addComponent(eurLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jpyLabel)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Currency Live", jPanel3);
 
         jPanel2.setBackground(java.awt.Color.white);
 
+        jButton1.setBackground(java.awt.Color.black);
+        jButton1.setForeground(java.awt.Color.white);
         jButton1.setText("Convert");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +164,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "˚C", "˚F", "Kelvin" }));
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "g", "kg", "lb", "oz" }));
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "g", "kg", "lb", "oz" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -153,22 +180,29 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTF3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTF5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox4, 0, 57, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTF6, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(jTF2)
+                    .addComponent(jTF4))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(jTF4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTF2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17))
+                        .addComponent(jComboBox6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(116, 116, 116))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +222,13 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTF5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTF6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Unit Converter", jPanel2);
@@ -199,7 +239,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 542, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +287,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(tempLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,16 +315,13 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -293,10 +330,14 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:   
         DecimalFormat f = new DecimalFormat("#####0.#######");
+        jTF2.setText("");
+        jTF4.setText("");
+        jTF6.setText("");
         if (!jTF1.getText().equals("")) {
             Object selected1 = jComboBox2.getSelectedItem();
             Object selected2 = jComboBox3.getSelectedItem();
             Double tf1 = new Double(jTF1.getText());
+            
             if (selected1 == selected2) {
                 jTF2.setText(jTF1.getText());
             }
@@ -316,7 +357,10 @@ public class NewJFrame extends javax.swing.JFrame {
                 }// mm to ft               
                 if (selected2 == "mile") {
                     jTF2.setText(f.format(tf1 / 1609344));
-                }//mm to mile               
+                }//mm to mile
+                if(selected2 =="inch"){
+                    jTF2.setText(f.format(tf1*0.0393701));
+                }//mm to inch
             }// mm
 
             //cm
@@ -335,7 +379,10 @@ public class NewJFrame extends javax.swing.JFrame {
                 }// cm to ft               
                 if (selected2 == "mile") {
                     jTF2.setText(f.format(tf1 / 160934.4));
-                }//cm to mile               
+                }//cm to mile           
+                if (selected2 == "inch") {
+                    jTF2.setText(f.format(tf1 *0.393701));
+                }//cm to inch      
             }// cm
 
             //m
@@ -354,7 +401,10 @@ public class NewJFrame extends javax.swing.JFrame {
                 }// m to ft               
                 if (selected2 == "mile") {
                     jTF2.setText(f.format(tf1 / 1609.344));
-                }//m to mile               
+                }//m to mile      
+                if (selected2 == "inch") {
+                    jTF2.setText(f.format(tf1 *39.3701));
+                }//m to inch  
             }// m
 
             //km
@@ -373,7 +423,10 @@ public class NewJFrame extends javax.swing.JFrame {
                 }// km to ft               
                 if (selected2 == "mile") {
                     jTF2.setText(f.format(tf1 / 1.609344));
-                }//km to mile               
+                }//km to mile              
+                if (selected2 == "inch") {
+                    jTF2.setText(f.format(tf1 * 39370.1));
+                }//km to inch  
             }// km
 
             //ft
@@ -392,7 +445,10 @@ public class NewJFrame extends javax.swing.JFrame {
                 }// ft to m               
                 if (selected2 == "mile") {
                     jTF2.setText(f.format(tf1 * 0.000189394));
-                }//ft to mile               
+                }//ft to mile    
+                if (selected2 == "inch") {
+                    jTF2.setText(f.format(tf1 * 12));
+                }//ft to inch
             }// ft
 
             //mile
@@ -411,8 +467,33 @@ public class NewJFrame extends javax.swing.JFrame {
                 }// mile to m               
                 if (selected2 == "ft") {
                     jTF2.setText(f.format(tf1 * 5280));
-                }//mile to ft               
+                }//mile to ft       
+                if (selected2 == "inch") {
+                    jTF2.setText(f.format(tf1 * 63360));
+                }//mile to inch  
             }// mile 
+            
+            //inch
+            if (selected1 == "inch") {
+                if (selected2 == "cm") {
+                    jTF2.setText(f.format(tf1 * 2.54));
+                }//inch to cm               
+                if (selected2 == "mm") {
+                    jTF2.setText(f.format(tf1 * 25.4));
+                }// inch to mm               
+                if (selected2 == "km") {
+                    jTF2.setText(f.format(tf1 * 0.0000254));
+                }// inch to km               
+                if (selected2 == "m") {
+                    jTF2.setText(f.format(tf1 * 0.0254));
+                }// inch to m               
+                if (selected2 == "ft") {
+                    jTF2.setText(f.format(tf1 * 0.0833333));
+                }//inch to ft       
+                if (selected2 == "mile") {
+                    jTF2.setText(f.format(tf1 * 0.000015783));
+                }//inch to mile  
+            }// inch
         }
 
         // Temperature Conversion 
@@ -420,6 +501,7 @@ public class NewJFrame extends javax.swing.JFrame {
             Object tempSelected1 = jComboBox4.getSelectedItem();
             Object tempSelected2 = jComboBox5.getSelectedItem();
             Double tf2 = new Double(jTF3.getText());
+            
             if (tempSelected1 == tempSelected2) {
                 jTF4.setText(jTF3.getText());
             }
@@ -441,18 +523,91 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         }//Temp
+        
+        //Weight Conversion
+        if (!jTF5.getText().equals("")) {
+            Object tempSelected3 = jComboBox1.getSelectedItem();
+            Object tempSelected4 = jComboBox6.getSelectedItem();
+            Double tf3 = new Double(jTF5.getText());
+            
+            if(tempSelected3 == tempSelected4)
+                jTF6.setText(jTF5.getText());
+            //g
+            if(tempSelected3 == "g"){
+                if(tempSelected4 == "kg" ){
+                    jTF6.setText(f.format(tf3 * 0.001));
+                }//g to kg
+                if(tempSelected4 == "lb"){
+                    jTF6.setText(f.format(tf3 * 0.00220462));
+                }//g to lb
+                if(tempSelected4 == "oz"){
+                    jTF6.setText(f.format(tf3 * 0.035274));
+                }//g to oz                
+            }//g
+            
+            //kg
+            if(tempSelected3 == "kg"){
+                if(tempSelected4 == "g" ){
+                    jTF6.setText(f.format(tf3 * 1000));
+                }//kg to g
+                if(tempSelected4 == "lb"){
+                    jTF6.setText(f.format(tf3 * 2.20462));
+                }//kg to lb
+                if(tempSelected4 == "oz"){
+                    jTF6.setText(f.format(tf3 * 35.274));
+                }//kg to oz                
+            }//kg
+            
+            //lb
+            if(tempSelected3 == "lb"){
+                if(tempSelected4 == "g" ){
+                    jTF6.setText(f.format(tf3 * 453.592));
+                }//lg to g
+                if(tempSelected4 == "kg"){
+                    jTF6.setText(f.format(tf3 * 0.453592));
+                }//lg to kg
+                if(tempSelected4 == "oz"){
+                    jTF6.setText(f.format(tf3 * 16));
+                }//lb to oz                
+            }//lb
+            
+            //oz
+            if(tempSelected3 == "oz"){
+                if(tempSelected4 == "g" ){
+                    jTF6.setText(f.format(tf3 * 28.3495));
+                }//oz to g
+                if(tempSelected4 == "kg"){
+                    jTF6.setText(f.format(tf3 * 0.0283495));
+                }//oz to kg
+                if(tempSelected4 == "lb"){
+                    jTF6.setText(f.format(tf3 * 0.0625));
+                }//oz to lb                
+            }//oz
+        }//Weight
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        String link = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22USDCNY%22%2C%20%22USDEUR%22%2C%22USDJPY%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+        // TODO add your handling code here:        
         GetData data = new GetData();
-        String[] result = data.readCurrency(link);
-        cnyLabel.setText(result[0] + " USD/CNY");
-        eurLabel.setText(result[1] + " USD/EUR");
-        jpyLabel.setText(result[2] + " USD/JPY");
-        timeLabel.setText("<html><p>Updated Time:</p>" + result[3] + "</html>");
+        DecimalFormat f = new DecimalFormat(".##");
+        String[] result = data.readCurrency();
+        Double cny =new Double(result[0]);
+        Double eur =new Double(result[1]);
+        Double jpy =new Double(result[2]);
+        String requestTime = result[3];
+        if((!enterField.getText().isEmpty())){
+            Double exchangeRate = new Double(enterField.getText());
+            cnyLabel.setText(f.format(cny*exchangeRate) + " USD/CNY");
+            eurLabel.setText(f.format(eur*exchangeRate) + " USD/EUR");
+            jpyLabel.setText(f.format(jpy*exchangeRate) + " USD/JPY");
+            timeLabel.setText("<html><p>Updated Time:</p>" + requestTime + "</html>");
+        }else{
+            cnyLabel.setText(cny + " USD/CNY");
+            eurLabel.setText(eur + " USD/EUR");
+            jpyLabel.setText(jpy + " USD/JPY");
+            timeLabel.setText("<html><p>Updated Time:</p>" + requestTime + "</html>");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -515,15 +670,19 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel cdLabel;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JLabel cnyLabel;
+    private javax.swing.JTextField enterField;
     private javax.swing.JLabel eurLabel;
     private javax.swing.JLabel iconLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -532,6 +691,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTF2;
     private javax.swing.JTextField jTF3;
     private javax.swing.JTextField jTF4;
+    private javax.swing.JTextField jTF5;
+    private javax.swing.JTextField jTF6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel jpyLabel;
     private javax.swing.JLabel tempLabel;
