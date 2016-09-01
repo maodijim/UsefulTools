@@ -50,9 +50,9 @@ public class GetData {
          }
          return null;
     }
-    public static String[] readCurrency(String link){
+    public static String[] readCurrency(){
          //Read JSON File     
-         //String link = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22USDCNY%22%2C%20%22USDEUR%22%2C%22USDJPY%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+         String link = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22USDCNY%22%2C%20%22USDEUR%22%2C%22USDJPY%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
         
          String s = getJson(link);
          String createdDate = s.substring(31, 50);
@@ -122,17 +122,17 @@ public class GetData {
             String location = getJson(link);
             JSONObject jsonObj = new JSONObject(location); 
            String city = jsonObj.getString("city");  //Get City From Location
+           String state = jsonObj.getString("stateProv");
            String city1 = city.replaceAll(" ", "%20");
             //Get woeid
-            link = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text%3D%22"+ city1 +"%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+            link = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text%3D%22"+ city1+"%20"+ state +"%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
             String cityQuery = getJson(link);
-            jsonObj = new JSONObject(cityQuery);
+            jsonObj = new JSONObject(cityQuery);            
             JSONObject query = jsonObj.getJSONObject("query");
-            JSONObject results = query.getJSONObject("results");
+            JSONObject results = query.getJSONObject("results");            
             JSONObject place = results.getJSONObject("place");
-            JSONObject locality1 = place.getJSONObject("locality1");
-            String woeid = locality1.getString("woeid");
-            
+            System.out.print(place);
+            String woeid = place.getString("woeid");
             //Get Weather 
             link = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D"+ woeid + "&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
             String weather = getJson(link);
