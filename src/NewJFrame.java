@@ -95,7 +95,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jpyLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jpyLabel.setText("USD/JPY");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD" }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "CNY" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -590,18 +590,26 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:        
         GetData data = new GetData();
-        DecimalFormat f = new DecimalFormat(".##");
+        DecimalFormat f = new DecimalFormat("#.###");
         String[] result = data.readCurrency();
         Double cny =new Double(result[0]);
         Double eur =new Double(result[1]);
         Double jpy =new Double(result[2]);
         String requestTime = result[3];
         if((!enterField.getText().isEmpty())){
-            Double exchangeRate = new Double(enterField.getText());
-            cnyLabel.setText(f.format(cny*exchangeRate) + " USD/CNY");
-            eurLabel.setText(f.format(eur*exchangeRate) + " USD/EUR");
-            jpyLabel.setText(f.format(jpy*exchangeRate) + " USD/JPY");
-            timeLabel.setText("<html><p>Updated Time:</p>" + requestTime + "</html>");
+            Double exchangeRate = new Double(enterField.getText());            
+            if(jComboBox7.getSelectedItem() == "USD"){
+             cnyLabel.setText(f.format(cny*exchangeRate) + " USD/CNY");
+             eurLabel.setText(f.format(eur*exchangeRate) + " USD/EUR");
+             jpyLabel.setText(f.format(jpy*exchangeRate) + " USD/JPY");
+             timeLabel.setText("<html><p>Updated Time:</p>" + requestTime + "</html>");
+            }else{
+             Double usd = exchangeRate*cny;
+             cnyLabel.setText(f.format(exchangeRate/cny) + " CNY/USD");
+             eurLabel.setText(f.format(exchangeRate/cny*eur) + " CNY/EUR");
+             jpyLabel.setText(f.format(exchangeRate/cny*jpy) + " CNY/JPY");
+             timeLabel.setText("<html><p>Updated Time:</p>" + requestTime + "</html>");
+            }
         }else{
             cnyLabel.setText(cny + " USD/CNY");
             eurLabel.setText(eur + " USD/EUR");
